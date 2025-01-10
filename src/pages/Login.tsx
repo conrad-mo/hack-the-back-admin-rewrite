@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import fetchInstance from "@/utils/api";
 import { useNavigate } from "react-router";
 import { UserContext } from "@/utils/auth";
@@ -10,9 +10,11 @@ function Login() {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const navigate = useNavigate();
   const { login, isAuthenticated } = useContext(UserContext) ?? {};
-  if (isAuthenticated) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated, navigate]);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const urlEncodedData = new URLSearchParams();

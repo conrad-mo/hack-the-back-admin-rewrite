@@ -12,7 +12,7 @@ const fetchInstance = async (endpoint: string, options: FetchOptions = {}) => {
   const headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
-    ...(token && { Authorization: `JWT ${token}` }),
+    ...(token && { Authorization: `Bearer ${token}` }),
   };
 
   const config = {
