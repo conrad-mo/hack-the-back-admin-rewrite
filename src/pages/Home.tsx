@@ -2,8 +2,9 @@ import { Piechart } from "../components/Piechart";
 import { useContext, useEffect } from "react";
 import { UserContext } from "@/utils/auth";
 import { useNavigate } from "react-router";
+import NavMenu from "@/components/Navmenu";
 
-function App() {
+function Home() {
   const { isAuthenticated } = useContext(UserContext) ?? {};
   const navigate = useNavigate();
   useEffect(() => {
@@ -12,10 +13,11 @@ function App() {
     }
   }, [isAuthenticated, navigate]);
   return (
-    <>
+    <div className="flex h-screen gap-16">
+      <NavMenu />
       <Piechart />
-    </>
+    </div>
   );
 }
 
-export default App;
+export default Home;

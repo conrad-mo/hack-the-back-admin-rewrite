@@ -68,7 +68,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     };
     let timer: number;
     handler().then(() => {
-      timer = window.setInterval(handler, 10000);
+      timer = window.setInterval(handler, 30000);
     });
 
     return () => {

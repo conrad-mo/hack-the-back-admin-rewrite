@@ -28,7 +28,6 @@ function Login() {
         },
         body: urlEncodedData.toString(),
       });
-      console.log("Response:", response);
       if (response.access_token && login) {
         await login(response.access_token);
         navigate("/");
